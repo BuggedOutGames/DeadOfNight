@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3843266741544073018}
   - component: {fileID: 7847820904366188856}
   m_Layer: 12
-  m_Name: GameObject
-  m_TagString: Immovable
+  m_Name: BaseCollider
+  m_TagString: Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4094684142811104929}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.49, y: -0.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6337220315541282455}
@@ -57,14 +57,17 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 4.986011, y: -1.5866538}
-      - {x: 5.1439886, y: -1.3732203}
-      - {x: 4.871409, y: -1.4015619}
-      - {x: 3.9719806, y: -1.2685565}
-      - {x: -5.365977, y: -0.57716537}
-      - {x: -4.593557, y: -1.036496}
-      - {x: -0.09016377, y: -1.4870747}
-      - {x: 4.3668795, y: -1.9337889}
+    - - {x: 4.617746, y: -0.9494082}
+      - {x: 5.2074904, y: -0.8469113}
+      - {x: 5.6074047, y: -0.5741309}
+      - {x: 5.680368, y: -0.47376418}
+      - {x: 4.3295317, y: -0.30809462}
+      - {x: 4.4150267, y: -0.31499767}
+      - {x: -4.9565005, y: 0.5280859}
+      - {x: -4.092219, y: -0.08117604}
+      - {x: -0.16011977, y: -0.4975239}
+      - {x: 4.122221, y: -0.9222256}
+      - {x: 3.9949162, y: -0.9219191}
 --- !u!50 &7847820904366188856
 Rigidbody2D:
   serializedVersion: 4

@@ -8,25 +8,46 @@ public class SceneryBehaviour : MonoBehaviour {
     private const string SceneryBelowLayer = "SceneryBelow";
 
     private SpriteRenderer spriteRenderer;
+    private bool transparent;
     
     private void Start() {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerStay2D(Collider2D other) {
         if (other.CompareTag("PlayerTrigger")) {
-            ChangeLayer(SceneryAboveLayer);
-            StartCoroutine(TransitionOpacity(0.5f));
+            if (IsBehind(other.transform) && !transparent) {
+                MakeTransparent();
+            } else if (!IsBehind(other.transform) && transparent) {
+                MakeOpaque();
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
         if (other.CompareTag("PlayerTrigger")) {
-            ChangeLayer(SceneryBelowLayer);
-            StartCoroutine(TransitionOpacity(1f));
+            MakeOpaque();
         }
     }
 
+    private bool IsBehind(Transform other) {
+        var otherY = other.FindChildByTag("Base")?.position.y ?? other.position.y;
+        var thisY = transform.FindChildByTag("Base")?.position.y ?? transform.position.y;
+        return otherY > thisY;
+    }
+
+    private void MakeTransparent() {
+        transparent = true;
+        StartCoroutine(TransitionOpacity(0.5f));
+        ChangeLayer(SceneryAboveLayer);
+    }
+
+    private void MakeOpaque() {
+        transparent = false;
+        StartCoroutine(TransitionOpacity(1f));
+        ChangeLayer(SceneryBelowLayer);
+    }
+    
     private float GetOpacity() {
         return spriteRenderer.color.a;
     }

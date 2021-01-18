@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5813520582922790046}
   - component: {fileID: 4797297198168586841}
   m_Layer: 12
-  m_Name: BaseCollider
-  m_TagString: Immovable
+  m_Name: Base
+  m_TagString: Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -35,6 +35,7 @@ ExportedObj/
 *.csproj
 *.unityproj
 *.sln
+*.DotSettings
 *.suo
 *.tmp
 *.user
