@@ -12,7 +12,7 @@ public class MovementBehaviour : NetworkBehaviour {
     
     private void Start() {
         rigidBody = GetComponent<Rigidbody2D>();
-        adjustedMovementSpeed = movementSpeed * 1.5f;
+        adjustedMovementSpeed = movementSpeed * 75f;
     }
 
     private void FixedUpdate() {
@@ -24,7 +24,6 @@ public class MovementBehaviour : NetworkBehaviour {
     }
 
     private void MoveTowards(Vector2 direction) {
-        var movement = direction * (adjustedMovementSpeed * Time.deltaTime);
-        rigidBody.MovePosition((Vector2) transform.position + movement);
+        rigidBody.velocity = direction * (adjustedMovementSpeed * Time.deltaTime);
     }
 }

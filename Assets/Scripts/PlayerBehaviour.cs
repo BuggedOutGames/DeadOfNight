@@ -2,7 +2,6 @@
 using UnityEngine;
 
 public class PlayerBehaviour : NetworkBehaviour {
-
     
     private void Start() {
         if (isLocalPlayer) {

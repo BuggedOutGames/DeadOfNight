@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Immovable
+  - PlayerTrigger
+  - Scenery
   layers:
   - Default
   - TransparentFX
@@ -15,9 +18,9 @@ TagManager:
   - 
   - Ground
   - Meeples
-  - Player
+  - SceneryAbove
   - Lights
-  - Foliage
+  - SceneryBelow
   - 
   - 
   - 
@@ -44,14 +47,14 @@ TagManager:
   - name: Ground
     uniqueID: 674535161
     locked: 0
-  - name: Foliage
+  - name: SceneryBelow
     uniqueID: 2515103813
     locked: 0
   - name: Meeples
     uniqueID: 4135040257
     locked: 0
-  - name: Player
-    uniqueID: 1524408817
+  - name: SceneryAbove
+    uniqueID: 2318333991
     locked: 0
   - name: Lights
     uniqueID: 3386802429
