@@ -5,7 +5,7 @@ public class PlayerBehaviour : NetworkBehaviour {
     
     private void Start() {
         if (isLocalPlayer) {
-            var cameraMountPoint = transform.Find("CameraMountPoint");
+            var cameraMountPoint = transform.Find("CameraAnchor");
             var cameraTransform = Camera.main.gameObject.transform;
             cameraTransform.parent = cameraMountPoint.transform;
             cameraTransform.position = cameraMountPoint.transform.position;
