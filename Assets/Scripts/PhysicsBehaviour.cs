@@ -2,7 +2,7 @@
 
 public class PhysicsBehaviour : MonoBehaviour {
 
-    private const string PlayerLayer = "Meeples";
+    private const string PlayerLayer = "Player";
     
     private void Start() {
         Physics2D.IgnoreLayerCollision(

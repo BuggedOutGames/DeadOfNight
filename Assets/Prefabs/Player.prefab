@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4724400571846003885}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Base
   m_TagString: Base
   m_Icon: {fileID: 0}
@@ -24,10 +24,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372958703122187561}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.92, z: 0}
+  m_LocalPosition: {x: 0, y: -1.4499998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7083762882863768883}
+  m_Father: {fileID: 7856168569151931126}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &494327052989901183
@@ -39,8 +39,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7083762882863768883}
-  - component: {fileID: 4173839350474584352}
-  m_Layer: 9
+  - component: {fileID: 1462293591955067253}
+  m_Layer: 10
   m_Name: PlayerTrigger
   m_TagString: PlayerTrigger
   m_Icon: {fileID: 0}
@@ -57,13 +57,12 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4724400571846003885}
+  m_Children: []
   m_Father: {fileID: 7856168569151931126}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &4173839350474584352
-BoxCollider2D:
+--- !u!60 &1462293591955067253
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -75,7 +74,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.045895457, y: 0.3831854}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -85,9 +84,33 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.3721906, y: 0.9352088}
+      - {x: 1.2580856, y: 1.3079515}
+      - {x: 1.1376524, y: 1.5372717}
+      - {x: 0.8904755, y: 1.8655167}
+      - {x: 0.49186218, y: 2.14468}
+      - {x: 0.016561985, y: 2.1926746}
+      - {x: -0.3119719, y: 2.1455617}
+      - {x: -0.65926206, y: 1.9035733}
+      - {x: -0.921051, y: 1.5370102}
+      - {x: -1.1258675, y: 1.0525599}
+      - {x: -1.2160532, y: 0.32558182}
+      - {x: -1.2012556, y: -0.21268022}
+      - {x: -1.0206928, y: -0.8801465}
+      - {x: -0.7706453, y: -1.3384142}
+      - {x: -0.4396292, y: -1.3162174}
+      - {x: -0.23371065, y: -1.1010365}
+      - {x: 0.023056448, y: -0.9343777}
+      - {x: 0.30227965, y: -1.0376973}
+      - {x: 0.46292347, y: -1.2347841}
+      - {x: 0.7392598, y: -1.3680587}
+      - {x: 0.9511661, y: -1.290317}
+      - {x: 1.0782375, y: -1.1522341}
+      - {x: 1.1766512, y: -0.9343195}
+      - {x: 1.4655861, y: -0.14641976}
+      - {x: 1.4644872, y: 0.32558197}
 --- !u!1 &3462517760901293784
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,7 +120,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6341356547232442046}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: FlashlightAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +140,7 @@ Transform:
   m_Children:
   - {fileID: 9192794159563230687}
   m_Father: {fileID: 7856168569151931126}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3760471757781980775
 GameObject:
@@ -131,9 +154,10 @@ GameObject:
   - component: {fileID: 3760471757781980774}
   - component: {fileID: 9192794159425092560}
   - component: {fileID: 4401274993768085932}
-  m_Layer: 9
+  - component: {fileID: 6625423616723509295}
+  m_Layer: 10
   m_Name: PlayerSprite
-  m_TagString: Untagged
+  m_TagString: PlayerSprite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,7 +177,7 @@ Transform:
   - {fileID: 9192794161030050697}
   - {fileID: 9192794160569118431}
   m_Father: {fileID: 7856168569151931126}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3760471757781980774
 SpriteRenderer:
@@ -191,7 +215,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -159927039
+  m_SortingLayerID: -1819305377
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 2038652450127512413, guid: 6d6a41218dc9fe74fa81a59539414d14,
@@ -247,6 +271,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!210 &6625423616723509295
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3760471757781980775}
+  m_Enabled: 1
+  m_SortingLayerID: 1103181889
+  m_SortingLayer: 7
+  m_SortingOrder: 100
 --- !u!1 &4972082904035004031
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,7 +291,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4513000224621827193}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: CameraAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +310,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7856168569151931126}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6512009012920194534
 GameObject:
@@ -295,7 +330,7 @@ GameObject:
   - component: {fileID: 7294190642641466544}
   - component: {fileID: 8499125667536198233}
   - component: {fileID: 2212942386222739186}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -313,6 +348,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4724400571846003885}
   - {fileID: 7083762882863768883}
   - {fileID: 1442616488485848804}
   - {fileID: 4513000224621827193}
@@ -490,7 +526,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1442616488485848804}
   - component: {fileID: 6862025966803214858}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Vision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +545,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7856168569151931126}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6862025966803214858
 MonoBehaviour:
@@ -529,7 +565,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.6
   m_LightVolumeOpacity: 0.01
-  m_ApplyToSortingLayers: f996342801b577f64570e99527f82e8a
+  m_ApplyToSortingLayers: 00000000f9963428034d81955f9a8f93994ac343eba6d44e01c719f34138c141
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 1
   m_LightOrder: 0
@@ -562,7 +598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9192794159563230687}
   - component: {fileID: 9192794159563230680}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Flashlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,7 +637,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.5
   m_LightVolumeOpacity: 0.01
-  m_ApplyToSortingLayers: f996342801b577f64570e99527f82e8a
+  m_ApplyToSortingLayers: 00000000f9963428034d81955f9a8f93994ac343eba6d44e01c719f34138c141
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -633,7 +669,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9192794159716809195}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: BoneBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,7 +699,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9192794160569118431}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: BoneRightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -693,7 +729,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9192794161030050697}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: BoneLeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,24 +1,30 @@
 ﻿using System.Collections;
+using System.Text.RegularExpressions;
+using Mirror;
 using UnityEngine;
+using UnityEngine.Rendering;
 
-[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(SpriteRenderer), typeof(SortingGroup))]
 public class SceneryBehaviour : MonoBehaviour {
-    
-    private const string SceneryAboveLayer = "SceneryAbove";
-    private const string SceneryBelowLayer = "SceneryBelow";
 
     private SpriteRenderer spriteRenderer;
+    private int scenerySortLevel;
     private bool transparent;
     
     private void Start() {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        scenerySortLevel = GetSortLevel(GetComponent<SortingGroup>());
     }
 
     private void OnTriggerStay2D(Collider2D other) {
         if (other.CompareTag("PlayerTrigger")) {
-            if (IsBehind(other.transform) && !transparent) {
-                MakeTransparent();
-            } else if (!IsBehind(other.transform) && transparent) {
+            if (IsInFrontOf(other.transform.parent)) {
+                RenderBehindScenery(other.transform.parent);
+                if (other.GetComponentInParent<NetworkBehaviour>().isLocalPlayer) {
+                    MakeTransparent();
+                }
+            } else if (!IsInFrontOf(other.transform.parent)) {
+                RenderAboveScenery(other.transform.parent);
                 MakeOpaque();
             }
         }
@@ -26,26 +32,29 @@ public class SceneryBehaviour : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D other) {
         if (other.CompareTag("PlayerTrigger")) {
+            RenderAboveScenery(other.transform.parent);
             MakeOpaque();
         }
     }
 
-    private bool IsBehind(Transform other) {
-        var otherY = other.FindChildByTag("Base")?.position.y ?? other.position.y;
-        var thisY = transform.FindChildByTag("Base")?.position.y ?? transform.position.y;
-        return otherY > thisY;
+    private bool IsInFrontOf(Transform other) {
+        var thisY = transform.FindChildByTag("Base")?.position.y;
+        var otherY = other.FindChildByTag("Base")?.position.y;
+        return thisY < otherY;
     }
 
     private void MakeTransparent() {
-        transparent = true;
-        StartCoroutine(TransitionOpacity(0.5f));
-        ChangeLayer(SceneryAboveLayer);
+        if (!transparent) {
+            transparent = true;
+            StartCoroutine(TransitionOpacity(0.5f));
+        }
     }
 
     private void MakeOpaque() {
-        transparent = false;
-        StartCoroutine(TransitionOpacity(1f));
-        ChangeLayer(SceneryBelowLayer);
+        if (transparent) {
+            transparent = false;
+            StartCoroutine(TransitionOpacity(1f));
+        }
     }
     
     private float GetOpacity() {
@@ -56,10 +65,6 @@ public class SceneryBehaviour : MonoBehaviour {
         var spriteColor = spriteRenderer.color;
         spriteColor.a = opacity;
         spriteRenderer.color = spriteColor;
-    }
-
-    private void ChangeLayer(string layerName) {
-        spriteRenderer.sortingLayerID = SortingLayer.NameToID(layerName);
     }
 
     private IEnumerator TransitionOpacity(float finalOpacity) {
@@ -73,5 +78,35 @@ public class SceneryBehaviour : MonoBehaviour {
             yield return null;
         }
         SetOpacity(finalOpacity);
+    }
+    
+    private void RenderBehindScenery(Component other) {
+        var otherSortingGroup = other.GetComponentInChildren<SortingGroup>();
+        if (otherSortingGroup != null) {
+            var otherSortLevel = GetSortLevel(otherSortingGroup);
+            if (otherSortLevel >= scenerySortLevel) {
+                ChangeSortingGroupLayer(otherSortingGroup, "Level " + (scenerySortLevel - 1));
+            }
+        }
+    }
+
+    private void RenderAboveScenery(Component other) {
+        var otherSortingGroup = other.GetComponentInChildren<SortingGroup>();
+        if (otherSortingGroup != null) {
+            var otherSortingLevel = GetSortLevel(otherSortingGroup);
+            if (otherSortingLevel == scenerySortLevel - 1) {
+                ChangeSortingGroupLayer(otherSortingGroup, "Level " + scenerySortLevel);
+            }
+        }
+    }
+    
+    private static void ChangeSortingGroupLayer(SortingGroup sortingGroup, string sortingLayer) {
+        sortingGroup.sortingLayerID = SortingLayer.NameToID(sortingLayer);
+    }
+
+    private static int GetSortLevel(SortingGroup sortingGroup) {
+        var sortLevelRegex = new Regex(@"^Level (?<level>\d)$", RegexOptions.Compiled);
+        var match = sortLevelRegex.Match(sortingGroup.sortingLayerName);
+        return int.Parse(match.Groups["level"].Value);
     }
 }

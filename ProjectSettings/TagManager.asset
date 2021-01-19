@@ -8,6 +8,7 @@ TagManager:
   - PlayerTrigger
   - Scenery
   - Base
+  - PlayerSprite
   layers:
   - Default
   - TransparentFX
@@ -18,10 +19,10 @@ TagManager:
   - 
   - 
   - Ground
-  - Meeples
-  - SceneryAbove
-  - Lights
-  - SceneryBelow
+  - Scenery
+  - Player
+  - 
+  - 
   - 
   - 
   - 
@@ -48,15 +49,21 @@ TagManager:
   - name: Ground
     uniqueID: 674535161
     locked: 0
-  - name: SceneryBelow
-    uniqueID: 2515103813
+  - name: Scenery
+    uniqueID: 2508279043
     locked: 0
-  - name: Meeples
-    uniqueID: 4135040257
+  - name: Player
+    uniqueID: 2475661919
     locked: 0
-  - name: SceneryAbove
-    uniqueID: 2318333991
+  - name: Level 0
+    uniqueID: 1136872089
     locked: 0
-  - name: Lights
-    uniqueID: 3386802429
+  - name: Level 1
+    uniqueID: 1322559211
+    locked: 0
+  - name: Level 2
+    uniqueID: 4078552833
+    locked: 0
+  - name: Level 3
+    uniqueID: 1103181889
     locked: 0
